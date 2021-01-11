@@ -1,8 +1,15 @@
 {
   "name": "@kravc/expo-portal-agent",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Portal agent helpers to be used by Expo applications.",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/alexkravets/expo-portal-agent"
+  },
+  "directories": {
+    "src": "src"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
