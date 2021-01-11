@@ -1,0 +1,30 @@
+{
+  "name": "@kravc/expo-portal-agent",
+  "version": "0.2.1",
+  "description": "Portal agent helpers to be used by Expo applications.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleksandr Kravets <a@kra.vc>",
+  "license": "ISC",
+  "dependencies": {
+    "@kravc/identity": "^1.0.3",
+    "@kravc/mobx-create-store": "^0.1.1",
+    "@react-native-async-storage/async-storage": "^1.13.2",
+    "canonicalize": "^1.0.5",
+    "expo-linking": "~2.0.0",
+    "expo-random": "^10.0.0",
+    "expo-secure-store": "^9.3.0",
+    "js-sha256": "^0.9.0"
+  },
+  "peerDependencies": {
+    "react": "16.13.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.7.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-native": "^3.9.0"
+  }
+}
