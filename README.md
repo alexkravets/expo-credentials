@@ -3,6 +3,23 @@
 [Portal](https://portal.kra.vc/about/) agent helpers to be used by Expo
 applications.
 
+## Setup
+
+Add packages to your expo project:
+
+```sh
+npm i --save @kravc/expo-portal-agent
+npm i --save @kravc/expo-portal-polyfills
+```
+
+Setup polyfills and workarounds:
+
+```sh
+npx polyfills
+```
+
+Configure issuer and credential types via [@kravc/portal](https://github.com/alexkravets/portal).
+
 ## Connect Button
 
 ```js
@@ -11,8 +28,7 @@ import React, { useState } from 'react'
 import { Text, Button } from 'react-native'
 import { useAgent } from '@kravc/expo-portal-agent'
 
-// NOTE: Get issuer ID: https://github.com/alexkravets/portal
-const issuerId = ''
+const issuerId = 'ISSUER_ID'
 
 const ConnectButton = function () {
   const onUsernamePress = onReset => [ () => onReset() ]
@@ -47,9 +63,8 @@ export default ConnectButton
 ```js
 import { getAgent } from '@kravc/expo-portal-agent'
 
-// NOTE: Get issuer ID and credential type ID: https://github.com/alexkravets/portal
-const issuerId         = ''
-const credentialTypeId = ''
+const issuerId         = 'ISSUER_ID'
+const credentialTypeId = 'CREDENTIAL_TYPE_ID'
 
 const issueCredentialAsync = (credentialSubject = {}) => {
   const agent = getAgent()
