@@ -1,6 +1,6 @@
 {
   "name": "@kravc/expo-portal-agent",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Portal agent helpers to be used by Expo applications.",
   "main": "src/index.js",
   "repository": {
@@ -16,7 +16,7 @@
   "author": "Oleksandr Kravets <a@kra.vc>",
   "license": "ISC",
   "dependencies": {
-    "@kravc/identity": "^1.0.3",
+    "@kravc/identity": "^1.1.0",
     "@kravc/mobx-create-store": "^0.1.1",
     "@react-native-async-storage/async-storage": "^1.13.2",
     "canonicalize": "^1.0.5",
