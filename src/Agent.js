@@ -63,14 +63,7 @@ class Agent extends createStore(AsyncStorage, STORE_ID, observables) {
       }
     }
 
-    try {
-      await request(identity, 'IssueCredential', parameters)
-
-    } catch (error) {
-      // TODO: Show only in development mode.
-      console.error(error)
-
-    }
+    await request(identity, 'IssueCredential', parameters)
   }
 
   get isConnected() {
