@@ -1,6 +1,6 @@
 {
   "name": "@kravc/expo-credentials",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Library for Expo to support integration with Credentials service.",
   "main": "src/index.js",
   "repository": {

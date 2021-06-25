@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-
+import { useState } from 'react'
 import { observer } from '@kravc/mobx-create-store'
 
 import useMenu     from './useMenu'
@@ -7,7 +6,7 @@ import showError   from './showError'
 import openClient  from './openClient'
 import useOnResume from '../helpers/useOnResume'
 
-function ConnectAgent({ agent, Status, Button }) {
+function ConnectAgent({ agent, status, button }) {
   const [ isInProgress, setIsInProgress ] = useState(false)
 
   const trySynchronize = async (shouldShowError = false) => {
@@ -59,10 +58,10 @@ function ConnectAgent({ agent, Status, Button }) {
   }
 
   if (isInProgress) {
-    return <Status />
+    return status()
   }
 
-  return <Button title={title} onPress={onPress} />
+  return button(title, onPress)
 }
 
 export default observer(ConnectAgent)
