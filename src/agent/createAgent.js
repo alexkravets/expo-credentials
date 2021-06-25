@@ -47,12 +47,15 @@ function createAgent(AsyncStorage, keyPrefix, identityKey, issuerId, options = {
     async synchronizeAsync() {
       const mutation = { issuerId }
 
+      const { data } =
+        await request(this._identity, 'CreateOrReadAgent', { mutation })
+
       const {
         username = null,
         clientUrl,
         connectUrl,
         connectionUrl
-      } = await request(this._identity, 'CreateOrReadAgent', { mutation })
+      } = data
 
       await this.saveManyAsync({
         username,
