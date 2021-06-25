@@ -1,15 +1,15 @@
-# @kravc/expo-portal-agent
+# @kravc/expo-credentials
 
-[Portal](https://portal.kra.vc/about/) agent helpers to be used by Expo
-applications.
+Library for [Expo](https://expo.io) to support integration with
+[Credentials](https://api.dev.credentials.kra.vc/v1/) service.
+
 
 ## Setup
 
-Add packages to your expo project:
+Add package to an `expo` project:
 
 ```sh
-npm i --save @kravc/expo-portal-agent
-npm i --save @kravc/expo-portal-polyfills
+npm i --save @kravc/expo-credentials
 ```
 
 Setup polyfills and workarounds:
@@ -18,61 +18,14 @@ Setup polyfills and workarounds:
 npx polyfills
 ```
 
-Configure issuer and credential types via [@kravc/portal](https://github.com/alexkravets/portal).
-
-## Connect Button
+Import globals in `App.js`:
 
 ```js
-import React, { useState } from 'react'
-
-import { Text, Button } from 'react-native'
-import { useAgent } from '@kravc/expo-portal-agent'
-
-const issuerId = 'ISSUER_ID'
-
-const ConnectButton = function () {
-  const onUsernamePress = onReset => [ () => onReset() ]
-
-  const [ isInProgress, setIsInProgress ]   = useState(false)
-  const [ onConnect, username, connectUrl ] = useAgent(issuerId, onUsernamePress, setIsInProgress)
-
-  if (isInProgress) {
-    return (
-      <Text>
-        Connecting...
-      </Text>
-    )
-  }
-
-  const title = username ? `@${username}` : 'Connect'
-
-  return (
-    <Button
-      title={title}
-      onPress={onConnect}
-      connectUrl={connectUrl}
-    />
-  )
-}
-
-export default ConnectButton
+import '@kravc/expo-credentials/polyfills'
 ```
 
-## Issue Credential
+---
 
-```js
-import { getAgent } from '@kravc/expo-portal-agent'
+Author: [Alexander Kravets](mailto:a@kra.vc)
 
-const issuerId         = 'ISSUER_ID'
-const credentialTypeId = 'CREDENTIAL_TYPE_ID'
-
-const issueCredentialAsync = (credentialSubject = {}) => {
-  const agent = getAgent()
-
-  if (!agent) {
-    return
-  }
-
-  return agent.issueCredential(issuerId, credentialId, credentialSubject)
-}
-```
+Revision: June 25, 2021
