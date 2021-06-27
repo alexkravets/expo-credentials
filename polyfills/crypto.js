@@ -9,17 +9,24 @@ const createHash = (alg) => {
     throw new Error(`"${alg}" is not supported`)
   }
 
-  return {
-    update: (value) => {
-      const hashHex = sha256(value)
+  class CryptoHash {
+    constructor() {
+      this._data = ''
+    }
 
-      return {
-        digest: () => Buffer.from(hashHex, 'hex')
-      }
+    update(data) {
+      this._data = `${this._data}${data}`
+      return this
+    }
+
+    digest() {
+      const hashHex = sha256(this._data)
+      return Buffer.from(hashHex, 'hex')
     }
   }
+
+  return new CryptoHash()
 }
 
-export default {
-  createHash
-}
+export { createHash }
+export default { createHash }

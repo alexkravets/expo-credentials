@@ -10,8 +10,8 @@ const observables = {
   connectionUrl: null
 }
 
-function createAgent(AsyncStorage, keyPrefix, identityKey, issuerId, options = {}) {
-  keyPrefix = `${keyPrefix}_agent`
+function createAgentStore(AsyncStorage, storeId, identityKey, issuerId, options = {}) {
+  const keyPrefix = `${storeId}_AGENT`
 
   if (!identityKey) {
     throw new Error('Missing "identityKey" parameter')
@@ -88,4 +88,4 @@ function createAgent(AsyncStorage, keyPrefix, identityKey, issuerId, options = {
   return new Agent()
 }
 
-export default createAgent
+export default createAgentStore

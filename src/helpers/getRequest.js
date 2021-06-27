@@ -44,6 +44,8 @@ const getRequest = (baseUrl) => {
     const { message = 'Request failed' } = originalError
 
     const error = new Error(message)
+    error.parameters    = parameters
+    error.operationId   = operationId
     error.originalError = originalError
 
     throw error
