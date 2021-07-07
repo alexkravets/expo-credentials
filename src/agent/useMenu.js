@@ -14,7 +14,7 @@ const useMenu = agent => {
 
   const openConnection = () => openClient(connectionUrl, clientUrl)
 
-  const disconnect = () => agent.resetAsync()
+  const disconnect = () => agent.tryDisconnectAsync()
 
   const openMenu = () => showActionSheetWithOptions({
     options,

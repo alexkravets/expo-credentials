@@ -4,6 +4,7 @@ import { observer } from '@kravc/mobx-create-store'
 import useMenu     from './useMenu'
 import showError   from './showError'
 import openClient  from './openClient'
+import getUsername from './getUsername'
 import useOnResume from '../helpers/useOnResume'
 
 function ConnectAgent({ agent, status, button }) {
@@ -39,9 +40,8 @@ function ConnectAgent({ agent, status, button }) {
 
   const [ openMenu ] = useMenu(agent)
 
-  const { username, isRegistered, isConnected } = agent
-
-  const title = username ? `@${username}` : 'Connect'
+  const { response, isConnected, isRegistered  } = agent
+  const title = isConnected ? getUsername(response) : 'Connect'
 
   const onPress = async () => {
     if (isConnected) {

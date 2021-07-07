@@ -4,14 +4,15 @@ import getIdentity     from '../identity/getIdentity'
 import { createStore } from '@kravc/mobx-create-store'
 
 const observables = {
-  username:      null,
   clientUrl:     null,
   connectUrl:    null,
+  isConnected:   null,
+  responseJson:  null,
   connectionUrl: null
 }
 
-function createAgentStore(AsyncStorage, storeId, identityKey, issuerId, options = {}) {
-  const keyPrefix = `${storeId}_AGENT`
+function createAgentStore(AsyncStorage, keyPrefix, identityKey, issuerId, options = {}) {
+  keyPrefix = `${keyPrefix}_agent`
 
   if (!identityKey) {
     throw new Error('Missing "identityKey" parameter')
@@ -36,12 +37,16 @@ function createAgentStore(AsyncStorage, storeId, identityKey, issuerId, options 
       this._identity = await getIdentity(AsyncStorage, identityKey)
     }
 
-    get isConnected() {
-      return !!this.username
-    }
-
     get isRegistered() {
       return !!this.connectUrl
+    }
+
+    get response() {
+      if (this.responseJson) {
+        return JSON.parse(this.responseJson)
+      }
+
+      return {}
     }
 
     async synchronizeAsync() {
@@ -51,16 +56,18 @@ function createAgentStore(AsyncStorage, storeId, identityKey, issuerId, options 
         await request(this._identity, 'CreateOrReadAgent', { mutation })
 
       const {
-        username = null,
         clientUrl,
         connectUrl,
+        isConnected,
+        responseJson,
         connectionUrl
       } = data
 
       await this.saveManyAsync({
-        username,
         clientUrl,
         connectUrl,
+        isConnected,
+        responseJson,
         connectionUrl
       })
     }
@@ -82,7 +89,21 @@ function createAgentStore(AsyncStorage, storeId, identityKey, issuerId, options 
       await request(this._identity, 'IssueCredential', { mutation })
     }
 
-    // TODO: Finish resetAsync method.
+    async tryDisconnectAsync() {
+      try {
+        await request(this._identity, 'ResetAgent', { issuerId }, { method: 'PATCH' })
+
+      } catch (error) {
+        // console.error(error)
+
+        return
+      }
+
+      await this.saveManyAsync({
+        isConnected:  false,
+        responseJson: null
+      })
+    }
   }
 
   return new Agent()
