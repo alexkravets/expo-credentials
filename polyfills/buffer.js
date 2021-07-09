@@ -1,5 +1,4 @@
 
-// TODO: Check if we can use safe buffer here, which is used by identity:
-import { Buffer } from 'buffer'
+const Buffer = require('safe-buffer').Buffer
 
 global.Buffer = global.Buffer || Buffer

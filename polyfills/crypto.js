@@ -1,8 +1,8 @@
 
 import sha256 from 'js-sha256'
-import { Buffer } from 'buffer'
+const Buffer = require('safe-buffer').Buffer
 
-const createHash = (alg) => {
+const createHash = alg => {
   const isSupported = [ 'sha256' ].includes(alg)
 
   if (!isSupported) {
