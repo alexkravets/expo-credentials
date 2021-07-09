@@ -86,7 +86,7 @@ function createAgentStore(AsyncStorage, keyPrefix, identityKey, issuerId, option
         credentialSubjectJson
       }
 
-      await request(this._identity, 'IssueCredential', { mutation })
+      await request(this._identity, 'IssueAgentCredential', { mutation })
     }
 
     async tryDisconnectAsync() {
