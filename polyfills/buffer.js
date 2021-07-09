@@ -1,4 +1,4 @@
 
-const Buffer = require('safe-buffer').Buffer
+import { Buffer } from 'buffer'
 
 global.Buffer = global.Buffer || Buffer
