@@ -13,15 +13,13 @@ function ConnectAgent({ agent, status, button }) {
   const trySynchronize = async (shouldShowError = false) => {
     const { isConnected } = agent
 
-    if (isConnected) {
-      return
-    }
-
     if (isInProgress) {
       return
     }
 
-    setIsInProgress(true)
+    if (!isConnected) {
+      setIsInProgress(true)
+    }
 
     try {
       await agent.synchronizeAsync()
