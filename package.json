@@ -1,6 +1,6 @@
 {
   "name": "@kravc/expo-credentials",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Library for Expo to support integration with Credentials service.",
   "main": "src/index.js",
   "repository": {
@@ -21,13 +21,13 @@
   "license": "ISC",
   "dependencies": {
     "@expo/react-native-action-sheet": "^3.8.0",
-    "@kravc/identity": "^1.6.3",
+    "@kravc/identity": "^1.7.0",
     "@kravc/mobx-create-store": "^0.3.0",
     "buffer": "^6.0.3",
-    "events": "^3.2.0",
-    "expo-linking": "^2.4.2",
-    "expo-random": "^12.0.1",
-    "expo-secure-store": "^11.0.3",
+    "events": "^3.3.0",
+    "expo-linking": "^3.0.0",
+    "expo-random": "^12.1.1",
+    "expo-secure-store": "^11.1.0",
     "js-sha256": "^0.9.0",
     "querystring": "^0.2.1",
     "stream-browserify": "^3.0.0"
