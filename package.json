@@ -1,6 +1,6 @@
 {
   "name": "@kravc/expo-credentials",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Library for Expo to support integration with Credentials service.",
   "main": "src/index.js",
   "repository": {
@@ -20,26 +20,26 @@
   "author": "Oleksandr Kravets <a@kra.vc>",
   "license": "ISC",
   "dependencies": {
-    "@expo/react-native-action-sheet": "^3.8.0",
+    "@expo/react-native-action-sheet": "^3.13.0",
     "@kravc/identity": "^1.7.0",
-    "@kravc/mobx-create-store": "^0.3.0",
+    "@kravc/mobx-create-store": "^0.4.0",
     "buffer": "^6.0.3",
     "events": "^3.3.0",
-    "expo-linking": "^3.0.0",
-    "expo-random": "^12.1.1",
-    "expo-secure-store": "^11.1.0",
+    "expo-linking": "^3.1.0",
+    "expo-random": "^12.2.0",
+    "expo-secure-store": "^11.2.0",
     "js-sha256": "^0.9.0",
     "querystring": "^0.2.1",
     "stream-browserify": "^3.0.0"
   },
   "peerDependencies": {
-    "react": "17.0.1",
-    "react-native": "0.64.3"
+    "react": "17.0.2",
+    "react-native": "0.68.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.26.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-native": "^3.10.0"
+    "eslint": "^8.15.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-native": "^4.0.0"
   }
 }
